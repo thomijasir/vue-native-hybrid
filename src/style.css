@@ -1,0 +1,217 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-primary: var(--usible-primary, #3b82f6);
+  --color-primary-50: var(--usible-primary-surface, #eff6ff);
+  --color-primary-light: var(--usible-primary-light, #93c5fd);
+  --color-primary-dark: var(--usible-primary-dark, #1d4ed8);
+  --color-primary-active: var(--usible-primary-active, #dbeafe);
+
+  --color-secondary: var(--usible-secondary, #8b5cf6);
+  --color-secondary-50: var(--usible-secondary-surface, #f5f3ff);
+  --color-secondary-light: var(--usible-secondary-light, #c4b5fd);
+  --color-secondary-dark: var(--usible-secondary-dark, #6d28d9);
+  --color-secondary-active: var(--usible-secondary-active, #ede9fe);
+
+  --color-ternary: var(--usible-ternary, #06b6d4);
+  --color-ternary-50: var(--usible-ternary-surface, #ecfeff);
+  --color-ternary-light: var(--usible-ternary-light, #67e8f9);
+  --color-ternary-dark: var(--usible-ternary-dark, #0891b2);
+  --color-ternary-active: var(--usible-ternary-active, #cffafe);
+
+  --color-success: var(--usible-success, #22c55e);
+  --color-success-50: var(--usible-success-surface, #f0fdf4);
+  --color-success-light: var(--usible-success-light, #86efac);
+  --color-success-dark: var(--usible-success-dark, #16a34a);
+  --color-success-active: var(--usible-success-active, #dcfce7);
+
+  --color-warning: var(--usible-warning, #f59e0b);
+  --color-warning-50: var(--usible-warning-surface, #fffbeb);
+  --color-warning-light: var(--usible-warning-light, #fcd34d);
+  --color-warning-dark: var(--usible-warning-dark, #d97706);
+  --color-warning-active: var(--usible-warning-active, #fef3c7);
+
+  --color-error: var(--usible-error, #ef4444);
+  --color-error-50: var(--usible-error-surface, #fef2f2);
+  --color-error-light: var(--usible-error-light, #fca5a5);
+  --color-error-dark: var(--usible-error-dark, #dc2626);
+  --color-error-active: var(--usible-error-active, #fee2e2);
+
+  --color-background: var(--usible-background, #ffffff);
+  --color-surface: var(--usible-surface, #ffffff);
+  --color-surface-muted: var(--usible-surface-muted, #f9fafb);
+  --color-surface-subtle: var(--usible-surface-subtle, #f3f4f6);
+  --color-surface-hover: var(--usible-surface-hover, #f3f4f6);
+  --color-surface-active: var(--usible-surface-active, #e5e7eb);
+  --color-surface-disabled: var(--usible-surface-disabled, #f3f4f6);
+  --color-border: var(--usible-border, #e5e7eb);
+  --color-border-muted: var(--usible-border-muted, #f3f4f6);
+  --color-border-strong: var(--usible-border-strong, #d1d5db);
+  --color-foreground: var(--usible-foreground, #111827);
+  --color-foreground-muted: var(--usible-foreground-muted, #6b7280);
+  --color-foreground-subtle: var(--usible-foreground-subtle, #9ca3af);
+  --color-foreground-disabled: var(--usible-foreground-disabled, #9ca3af);
+  --color-placeholder: var(--usible-placeholder, #9ca3af);
+  --color-inverse: var(--usible-inverse, #ffffff);
+  --color-backdrop: var(--usible-backdrop, #000000);
+  --color-overlay: var(--usible-overlay, rgb(0 0 0 / 0.5));
+
+  --radius-usible: var(--usible-radius, 0.5rem);
+  --radius-usible-lg: var(--usible-radius-lg, 1rem);
+  --radius-usible-xl: var(--usible-radius-xl, 1.5rem);
+  --radius-usible-pill: var(--usible-radius-pill, 9999px);
+
+  --shadow-usible-sm: var(--usible-shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
+  --shadow-usible: var(
+    --usible-shadow,
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1)
+  );
+  --shadow-usible-lg: var(
+    --usible-shadow-lg,
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1)
+  );
+}
+
+:root {
+  /* Safe Area */
+  --native-safe-area-top: 0px;
+  --native-safe-area-right: 0px;
+  --native-safe-area-bottom: 0px;
+  --native-safe-area-left: 0px;
+  --safe-area-top: max(
+    var(--native-safe-area-top),
+    env(safe-area-inset-top, 0px),
+    0px
+  );
+  --safe-area-right: max(
+    var(--native-safe-area-right),
+    env(safe-area-inset-right, 0px),
+    0px
+  );
+  --safe-area-bottom: max(
+    var(--native-safe-area-bottom),
+    env(safe-area-inset-bottom, 0px),
+    0px
+  );
+  --safe-area-left: max(
+    var(--native-safe-area-left),
+    env(safe-area-inset-left, 0px),
+    0px
+  );
+  /* Theme Color */
+  --usible-primary: #3b82f6;
+  --usible-primary-surface: #eff6ff;
+  --usible-primary-light: #93c5fd;
+  --usible-primary-dark: #1d4ed8;
+  --usible-primary-active: #dbeafe;
+
+  --usible-secondary: #8b5cf6;
+  --usible-secondary-surface: #f5f3ff;
+  --usible-secondary-light: #c4b5fd;
+  --usible-secondary-dark: #6d28d9;
+  --usible-secondary-active: #ede9fe;
+
+  --usible-ternary: #06b6d4;
+  --usible-ternary-surface: #ecfeff;
+  --usible-ternary-light: #67e8f9;
+  --usible-ternary-dark: #0891b2;
+  --usible-ternary-active: #cffafe;
+
+  --usible-success: #22c55e;
+  --usible-success-surface: #f0fdf4;
+  --usible-success-light: #86efac;
+  --usible-success-dark: #16a34a;
+  --usible-success-active: #dcfce7;
+
+  --usible-warning: #f59e0b;
+  --usible-warning-surface: #fffbeb;
+  --usible-warning-light: #fcd34d;
+  --usible-warning-dark: #d97706;
+  --usible-warning-active: #fef3c7;
+
+  --usible-error: #ef4444;
+  --usible-error-surface: #fef2f2;
+  --usible-error-light: #fca5a5;
+  --usible-error-dark: #dc2626;
+  --usible-error-active: #fee2e2;
+
+  --usible-background: #ffffff;
+  --usible-surface: #ffffff;
+  --usible-surface-muted: #f9fafb;
+  --usible-surface-subtle: #f3f4f6;
+  --usible-surface-hover: #f3f4f6;
+  --usible-surface-active: #e5e7eb;
+  --usible-surface-disabled: #f3f4f6;
+  --usible-border: #e5e7eb;
+  --usible-border-muted: #f3f4f6;
+  --usible-border-strong: #d1d5db;
+  --usible-foreground: #111827;
+  --usible-foreground-muted: #6b7280;
+  --usible-foreground-subtle: #9ca3af;
+  --usible-foreground-disabled: #9ca3af;
+  --usible-placeholder: #9ca3af;
+  --usible-inverse: #ffffff;
+  --usible-backdrop: #000000;
+  --usible-overlay: rgb(0 0 0 / 0.5);
+
+  --usible-radius: 0.5rem;
+  --usible-radius-lg: 1rem;
+  --usible-radius-xl: 1.5rem;
+  --usible-radius-pill: 9999px;
+
+  --usible-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --usible-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --usible-shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background: #f5f7fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.safe-area {
+  min-height: 100svh;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  overflow-x: hidden;
+  padding: 0 var(--safe-area-right) var(--safe-area-bottom)
+    var(--safe-area-left);
+}
+
+.safe-area__content {
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: calc(100svh - var(--safe-area-bottom));
+  overflow-wrap: anywhere;
+}
+
+input,
+select,
+textarea {
+  font-size: max(16px, 1em);
+}
+
+.safe-area-pt {
+  padding-top: calc(var(--safe-area-top) + 1rem);
+}
