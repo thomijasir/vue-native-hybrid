@@ -1,4 +1,4 @@
 export interface SafeAreaLayoutProps {
-  class?: string
+  containerClass?: string
   contentClass?: string
 }

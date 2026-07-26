@@ -57,11 +57,6 @@
   --color-backdrop: var(--usible-backdrop, #000000);
   --color-overlay: var(--usible-overlay, rgb(0 0 0 / 0.5));
 
-  --radius-usible: var(--usible-radius, 0.5rem);
-  --radius-usible-lg: var(--usible-radius-lg, 1rem);
-  --radius-usible-xl: var(--usible-radius-xl, 1.5rem);
-  --radius-usible-pill: var(--usible-radius-pill, 9999px);
-
   --shadow-usible-sm: var(--usible-shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
   --shadow-usible: var(
     --usible-shadow,
@@ -157,11 +152,6 @@
   --usible-backdrop: #000000;
   --usible-overlay: rgb(0 0 0 / 0.5);
 
-  --usible-radius: 0.5rem;
-  --usible-radius-lg: 1rem;
-  --usible-radius-xl: 1.5rem;
-  --usible-radius-pill: 9999px;
-
   --usible-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --usible-shadow:
     0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -193,7 +183,7 @@ body {
   max-width: 100%;
   display: flex;
   overflow-x: hidden;
-  padding: 0 var(--safe-area-right) var(--safe-area-bottom)
+  padding: var(--safe-area-top) var(--safe-area-right) var(--safe-area-bottom)
     var(--safe-area-left);
 }
 
@@ -202,7 +192,7 @@ body {
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  min-height: calc(100svh - var(--safe-area-bottom));
+  min-height: calc(100svh - var(--safe-area-top) - var(--safe-area-bottom));
   overflow-wrap: anywhere;
 }
 
@@ -210,8 +200,4 @@ input,
 select,
 textarea {
   font-size: max(16px, 1em);
-}
-
-.safe-area-pt {
-  padding-top: calc(var(--safe-area-top) + 1rem);
 }

@@ -1,7 +1,7 @@
+import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vitest/config";
 import vue from "@vitejs/plugin-vue";
 import tailwindcss from "@tailwindcss/vite";
-import { fileURLToPath, URL } from "node:url";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -22,6 +22,21 @@ export default defineConfig({
     environment: "happy-dom",
     // Enable global test APIs (describe, it, expect) without importing them in every file
     globals: true,
+    // Install a working `localStorage` mock and reset it between tests.
+    setupFiles: ["./src/test/setup.ts"],
+    // Exclude route definitions and story files from being collected as tests.
+    // Routes are defined per-page in `*.route.ts` (or sometimes inline in the page),
+    // and `*.story.vue` files are visual stories — neither are unit tests.
+    exclude: [
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/cypress/**",
+      "**/.{idea,git,cache,output,temp}/**",
+      "**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build}.config.*",
+      "src/**/*.route.ts",
+      "src/**/*.story.vue",
+      "src/assets/**",
+    ],
     coverage: {
       provider: "v8",
       reporter: ["text", "html", "lcov"],
@@ -36,6 +51,10 @@ export default defineConfig({
         "src/router.ts",
         "src/main.ts",
         "src/**/index.ts",
+        // Route definitions (per-page `*.route.ts`) and visual stories are not unit-testable units
+        "src/**/*.route.ts",
+        "src/**/*.story.vue",
+        "src/assets/**",
       ],
     },
   },

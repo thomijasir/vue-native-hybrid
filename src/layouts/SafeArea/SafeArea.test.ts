@@ -10,9 +10,9 @@ describe("SafeArea.layout", () => {
     expect(wrapper.find(".safe-area__content").exists()).toBe(true);
   });
 
-  it("applies class and contentClass props", () => {
+  it("applies containerClass and contentClass props", () => {
     const wrapper = mount(SafeAreaLayout, {
-      props: { class: "page-home", contentClass: "p-4" },
+      props: { containerClass: "page-home", contentClass: "p-4" },
     });
 
     expect(wrapper.find("main").classes()).toEqual(["safe-area", "page-home"]);
